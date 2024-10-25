@@ -2,12 +2,13 @@ package com.amazingcode.in.example.service;
 
 import java.util.List;
 
-import com.amazingcode.in.example.entity.Address;
+import com.amazingcode.in.example.request.AddressRequest;
+import com.amazingcode.in.example.response.AddressResponse;
 
 public interface AddressService {
-	Address saveAddress(Address address);
-	List<Address> getAddresses();
-	Address getAddressByEmployeeId(Long employeeId);
-	Address updateAddress(Long addressId, Address address);
-	void deleteAddresss(Long addressId);
+	AddressResponse saveAddress(AddressRequest addressRequest);
+	List<AddressResponse> getAddresses();
+	AddressResponse getAddressByEmployeeId(Long employeeId);
+	AddressResponse updateAddress(Long employeeId, AddressRequest addressRequest);
+	void deleteAddresss(Long employeeId);
 }

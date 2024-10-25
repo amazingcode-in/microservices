@@ -1,17 +1,22 @@
 package com.amazingcode.in.example.response;
 
-import com.amazingcode.in.example.entity.Employee;
-import com.amazingcode.in.example.external.response.Address;
+import com.amazingcode.in.example.external.response.AddressResponse;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeResponse {
-	private Employee employee;
-	private Address address;
-	private String errorMessage;
+	private Long employeeId;
+	private String firstName;
+	private String lastName;
+	private String bloodGroup;
+	private String email;
+	private String  mobileNumber;
+	private Long age;
+
+	private String employeeErrorMessage;
+
+	private AddressResponse addressResponse;
 }

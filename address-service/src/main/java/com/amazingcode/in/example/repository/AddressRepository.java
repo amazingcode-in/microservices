@@ -8,4 +8,6 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 
 	Address findByEmployeeId(Long employeeId);
 
+    boolean existsByEmployeeId(Long employeeId);
+
 }

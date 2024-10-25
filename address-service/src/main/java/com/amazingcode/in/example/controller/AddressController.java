@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.amazingcode.in.example.entity.Address;
+import com.amazingcode.in.example.request.AddressRequest;
+import com.amazingcode.in.example.response.AddressResponse;
 import com.amazingcode.in.example.service.AddressService;
 
 @RestController
@@ -27,28 +28,29 @@ public class AddressController {
 	}
 	
 	@PostMapping
-	ResponseEntity<Address> createAddress(@RequestBody Address address){
-		return ResponseEntity.status(HttpStatus.CREATED).body(addressService.saveAddress(address));
+	ResponseEntity<AddressResponse> createAddress(@RequestBody AddressRequest addressRequest){
+		return ResponseEntity.status(HttpStatus.CREATED).body(addressService.saveAddress(addressRequest));
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Address>> getAddresses() {
-		return ResponseEntity.status(HttpStatus.FOUND).body(addressService.getAddresses());
+	public ResponseEntity<List<AddressResponse>> getAddresses() {
+		return ResponseEntity.status(HttpStatus.OK).body(addressService.getAddresses());
 	}
 	
 	@GetMapping("/{employeeId}")
-	public ResponseEntity<Address> getAddress(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<AddressResponse> getAddress(@PathVariable("employeeId") Long employeeId){
 		return ResponseEntity.status(HttpStatus.OK).body(addressService.getAddressByEmployeeId(employeeId));
 	}
-	
-	@PutMapping("/{addressId}")
-	public ResponseEntity<Address> updateAddress(@PathVariable Long addressId, @RequestBody Address address){
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(addressService.updateAddress(addressId, address));
+
+	@PutMapping("/{employeeId}")
+	public ResponseEntity<AddressResponse> updateAddress(@PathVariable("employeeId") Long employeeId, @RequestBody AddressRequest addressRequest){
+		return ResponseEntity.status(HttpStatus.OK).body(addressService.updateAddress(employeeId, addressRequest));
 	}
-	
-	@DeleteMapping("/{addressId}")
-	public ResponseEntity<String> deleteAddress(@PathVariable Long addressId){
-		return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Address deleted with given addressId: "+addressId);
+
+	@DeleteMapping("/{employeeId}")
+	public ResponseEntity<Void> deleteAddress(@PathVariable("employeeId") Long employeeId){
+		addressService.deleteAddresss(employeeId);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
 }
