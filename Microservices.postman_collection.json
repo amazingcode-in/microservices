@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "27c79f9f-35e7-49db-baa9-6811f7755223",
+		"name": "Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36209248"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "creatEmployee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Vaibhav\",\r\n    \"lastName\": \"Shejol\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"vaibhav.shejol@gmail.com\",\r\n    \"mobileNumber\": \"1234567890\",\r\n    \"age\": 24,\r\n    \"addressRequest\": {\r\n        \"street\": \"Malshemba\",\r\n        \"city\": \"Buldana\",\r\n        \"state\": \"Maharashtra\",\r\n        \"zipCode\": \"443201\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEmployee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/employees/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"employees",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEmployees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Vaibhav\",\r\n    \"lastName\": \"Shejol\",\r\n    \"bloodGroup\": \"B+\",\r\n    \"email\": \"vaibhav.shejol@gmail.com\",\r\n    \"mobileNumber\": \"1234567890\",\r\n    \"age\": 24,\r\n    \"addressRequest\": {\r\n        \"street\": \"Malshemba\",\r\n        \"city\": \"Chikhli\",\r\n        \"state\": \"Maharashtra\",\r\n        \"zipCode\": \"443201\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/employees/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"employees",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEmployee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/employees/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"employees",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "createAddress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Malshemba\",\r\n    \"city\": \"Buldana\",\r\n    \"state\": \"Maharashtra\",\r\n    \"zipCode\": \"443201\",\r\n    \"employeeId\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/com.amazingcode.in/api/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAddresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/addresses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddress",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/com.amazingcode.in/api/addresses/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"com.amazingcode.in",
+								"api",
+								"addresses",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
